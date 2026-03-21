@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transparency & Governance Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Stakeholder Intelligence</p>
+          <h1>Cardano dashboard for stakeholders.</h1>
+          <p class="hero__text">
+            Explore the network through three focused sections designed to make
+            reporting, governance activity, and technical performance easier to
+            understand at a glance.
+          </p>
+          <div class="hero-preview-cards">
+            <article class="hero-preview-card">
+              <h3>Transparency</h3>
+              <p>Communications, reporting, and stakeholder visibility.</p>
+            </article>
+            <article class="hero-preview-card">
+              <h3>Governance</h3>
+              <p>D-Reps, delegated votes, and active proposals.</p>
+            </article>
+            <article class="hero-preview-card">
+              <h3>Blockchain Metrics</h3>
+              <p>Price, network performance, and technical health.</p>
+            </article>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <nav class="tabs" aria-label="Dashboard sections" role="tablist">
+          <button class="tab" data-tab="transparency" role="tab" aria-selected="false" aria-controls="transparency">Transparency</button>
+          <button class="tab is-active" data-tab="overview" role="tab" aria-selected="true" aria-controls="overview">Governance</button>
+          <button class="tab" data-tab="technical" role="tab" aria-selected="false" aria-controls="technical">Blockchain Metrics</button>
+        </nav>
+
+        <section class="tab-panel is-active" id="overview" role="tabpanel">
+          <div class="panel-grid panel-grid--hero">
+            <article class="card stat-card accent-a">
+              <span class="stat-card__label">Active D-Reps</span>
+              <strong>24</strong>
+              <span class="delta positive">18 participated in the latest vote</span>
+            </article>
+            <article class="card stat-card accent-b">
+              <span class="stat-card__label">Total Delegated Votes</span>
+              <strong>142.8M</strong>
+              <span class="delta positive">Across all registered delegators</span>
+            </article>
+            <article class="card stat-card accent-c">
+              <span class="stat-card__label">Largest D-Rep Share</span>
+              <strong>18.4%</strong>
+              <span class="delta neutral">Top delegate concentration to monitor</span>
+            </article>
+            <article class="card stat-card accent-d">
+              <span class="stat-card__label">Live Proposals</span>
+              <strong>6</strong>
+              <span class="delta positive">2 reaching decision threshold this week</span>
+            </article>
+          </div>
+
+          <div class="panel-grid">
+            <article class="card narrative-card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Voting Structure</p>
+                  <h2>What stakeholders should know now</h2>
+                </div>
+                <span class="badge">Current Epoch</span>
+              </div>
+              <ul class="insight-list">
+                <li>Delegated voting power is concentrated in a handful of top D-Reps, which gives stakeholders a clear view of influence concentration.</li>
+                <li>Participation remains healthy, with most major delegates engaging in proposal review and voting activity.</li>
+                <li>Proposal flow is active, with treasury, protocol, and community initiatives all open for review.</li>
+              </ul>
+            </article>
+
+            <article class="card chart-card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Delegation Trend</p>
+                  <h2>Delegated votes over time</h2>
+                </div>
+              </div>
+              <div class="line-chart" aria-label="Delegated votes over time">
+                <svg viewBox="0 0 420 220" role="img">
+                  <defs>
+                    <linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.35" />
+                      <stop offset="100%" stop-color="#2563eb" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M20 182 C70 174, 95 158, 130 149 S210 118, 250 104 S320 92, 400 68 L400 220 L20 220 Z"
+                    fill="url(#areaFill)"
+                  ></path>
+                  <path
+                    d="M20 182 C70 174, 95 158, 130 149 S210 118, 250 104 S320 92, 400 68"
+                    fill="none"
+                    stroke="#2563eb"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                  ></path>
+                  <g class="chart-dots">
+                    <circle cx="20" cy="182" r="5"></circle>
+                    <circle cx="130" cy="149" r="5"></circle>
+                    <circle cx="250" cy="106" r="5"></circle>
+                    <circle cx="400" cy="68" r="5"></circle>
+                  </g>
+                </svg>
+                <div class="line-chart__labels">
+                  <span>Epoch 401</span>
+                  <span>Epoch 402</span>
+                  <span>Epoch 403</span>
+                  <span>Epoch 404</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="panel-grid governance-layout">
+            <article class="card table-card governance-layout__wide">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">D-Rep Registry</p>
+                  <h2>Delegated votes by representative</h2>
+                </div>
+                <span class="badge">Top Voting Entities</span>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>D-Rep</th>
+                      <th>Organization</th>
+                      <th>Delegated Votes</th>
+                      <th>Share</th>
+                      <th>Participation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Atlas Governance</td>
+                      <td>Independent Collective</td>
+                      <td>26.3M</td>
+                      <td>18.4%</td>
+                      <td><span class="status-pill active">Active</span></td>
+                    </tr>
+                    <tr>
+                      <td>Open Ledger Council</td>
+                      <td>Research Network</td>
+                      <td>21.7M</td>
+                      <td>15.2%</td>
+                      <td><span class="status-pill active">Active</span></td>
+                    </tr>
+                    <tr>
+                      <td>Civic Validators</td>
+                      <td>Validator Group</td>
+                      <td>18.1M</td>
+                      <td>12.7%</td>
+                      <td><span class="status-pill active">Active</span></td>
+                    </tr>
+                    <tr>
+                      <td>North Star Labs</td>
+                      <td>Protocol Builder</td>
+                      <td>13.4M</td>
+                      <td>9.4%</td>
+                      <td><span class="status-pill review">Reviewing</span></td>
+                    </tr>
+                    <tr>
+                      <td>Community Assembly</td>
+                      <td>Member Coalition</td>
+                      <td>11.8M</td>
+                      <td>8.3%</td>
+                      <td><span class="status-pill active">Active</span></td>
+                    </tr>
+                    <tr>
+                      <td>Horizon Treasury Forum</td>
+                      <td>Treasury Stewards</td>
+                      <td>9.7M</td>
+                      <td>6.8%</td>
+                      <td><span class="status-pill watch">At Risk</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Concentration View</p>
+                  <h2>Stake distribution signals</h2>
+                </div>
+              </div>
+              <div class="metric-stack">
+                <div>
+                  <span>Top 3 D-Reps</span>
+                  <strong>46.3%</strong>
+                </div>
+                <div>
+                  <span>Top 5 D-Reps</span>
+                  <strong>64.0%</strong>
+                </div>
+                <div>
+                  <span>Long-tail delegates</span>
+                  <strong>36.0%</strong>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <article class="card proposals-card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Proposal Pipeline</p>
+                <h2>Ideas and initiatives currently under vote</h2>
+              </div>
+              <span class="badge">6 Open Proposals</span>
+            </div>
+            <div class="proposal-grid">
+              <article class="proposal-item">
+                <div class="proposal-item__top">
+                  <strong>Treasury Allocation 2026-04</strong>
+                  <span class="status-pill review">Voting Now</span>
+                </div>
+                <p>Allocate new funding across ecosystem tooling, education, and developer grants.</p>
+                <div class="proposal-meta">
+                  <span>Support: 68%</span>
+                  <span>Ends in 2 days</span>
+                </div>
+              </article>
+              <article class="proposal-item">
+                <div class="proposal-item__top">
+                  <strong>D-Rep Transparency Standard</strong>
+                  <span class="status-pill active">Strong Support</span>
+                </div>
+                <p>Require standardized disclosure on voting rationale, attendance, and conflicts of interest.</p>
+                <div class="proposal-meta">
+                  <span>Support: 81%</span>
+                  <span>Ends in 5 days</span>
+                </div>
+              </article>
+              <article class="proposal-item">
+                <div class="proposal-item__top">
+                  <strong>Protocol Upgrade CIP-118</strong>
+                  <span class="status-pill review">Contested</span>
+                </div>
+                <p>Introduce performance upgrades with additional monitoring requirements for validators.</p>
+                <div class="proposal-meta">
+                  <span>Support: 52%</span>
+                  <span>Ends in 6 days</span>
+                </div>
+              </article>
+            </div>
+          </article>
+        </section>
+
+        <section class="tab-panel" id="transparency" role="tabpanel">
+          <div class="panel-grid">
+            <article class="card chart-card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Decentralized Participation</p>
+                  <h2>How the ecosystem stays transparent</h2>
+                </div>
+              </div>
+              <ul class="insight-list">
+                <li>Cardano governance is decentralized because voting power is distributed across ADA holders rather than controlled by a single institution.</li>
+                <li>D-Reps represent stakeholder interests, and their delegated voting activity can be reviewed openly by the community.</li>
+                <li>On-chain proposals, treasury decisions, and governance updates are designed to be visible so participants can understand what is being decided and why.</li>
+              </ul>
+            </article>
+
+            <article class="card feed-card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">How To Get Involved</p>
+                  <h2>Ways stakeholders can participate</h2>
+                </div>
+              </div>
+              <div class="feed">
+                <div class="feed-item">
+                  <span class="feed-item__time">1</span>
+                  <div>
+                    <strong>Hold or invest in ADA</strong>
+                    <p>Owning ADA is the starting point for participating in the ecosystem and following governance activity more closely.</p>
+                  </div>
+                </div>
+                <div class="feed-item">
+                  <span class="feed-item__time">2</span>
+                  <div>
+                    <strong>Delegate your voting power</strong>
+                    <p>Stakeholders can delegate to a D-Rep whose priorities and voting style match their own view of the network.</p>
+                  </div>
+                </div>
+                <div class="feed-item">
+                  <span class="feed-item__time">3</span>
+                  <div>
+                    <strong>Track proposals and treasury decisions</strong>
+                    <p>Following active proposals helps investors and participants understand where funding, upgrades, and governance priorities are moving.</p>
+                  </div>
+                </div>
+                <div class="feed-item">
+                  <span class="feed-item__time">4</span>
+                  <div>
+                    <strong>Join community discussion</strong>
+                    <p>Forums, governance channels, and ecosystem updates give stakeholders ways to learn, ask questions, and influence decisions over time.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="technical" role="tabpanel">
+          <div class="panel-grid panel-grid--hero">
+            <article class="card stat-card accent-a">
+              <span class="stat-card__label">ADA Spot Price</span>
+              <strong>$0.27</strong>
+              <span class="delta neutral">Reference snapshot for March 21, 2026</span>
+            </article>
+            <article class="card stat-card accent-b">
+              <span class="stat-card__label">7 Day Range</span>
+              <strong>$0.25-$0.29</strong>
+              <span class="delta positive">Recovered from early-week lows</span>
+            </article>
+            <article class="card stat-card accent-c">
+              <span class="stat-card__label">Cardano Node</span>
+              <strong>10.6.2</strong>
+              <span class="delta positive">Latest official release noted in docs</span>
+            </article>
+            <article class="card stat-card accent-d">
+              <span class="stat-card__label">Avg Blocks / Epoch</span>
+              <strong>21,083</strong>
+              <span class="delta neutral">Based on recent mainnet trend data</span>
+            </article>
+          </div>
+
+          <div class="panel-grid">
+            <article class="card chart-card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Market Movement</p>
+                  <h2>ADA price movement across recent sessions</h2>
+                </div>
+                <span class="badge">USD</span>
+              </div>
+              <div class="price-chart" aria-label="ADA price movement chart">
+                <svg viewBox="0 0 520 260" role="img">
+                  <defs>
+                    <linearGradient id="priceFill" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.3" />
+                      <stop offset="100%" stop-color="#2563eb" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M24 196 C70 190, 92 150, 138 156 S214 214, 258 182 S340 92, 382 128 S452 112, 496 104 L496 236 L24 236 Z"
+                    fill="url(#priceFill)"
+                  ></path>
+                  <path
+                    d="M24 196 C70 190, 92 150, 138 156 S214 214, 258 182 S340 92, 382 128 S452 112, 496 104"
+                    fill="none"
+                    stroke="#2563eb"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                  ></path>
+                  <g class="chart-dots">
+                    <circle cx="24" cy="196" r="5"></circle>
+                    <circle cx="138" cy="156" r="5"></circle>
+                    <circle cx="258" cy="182" r="5"></circle>
+                    <circle cx="382" cy="128" r="5"></circle>
+                    <circle cx="496" cy="104" r="5"></circle>
+                  </g>
+                </svg>
+                <div class="line-chart__labels">
+                  <span>Mar 1</span>
+                  <span>Mar 6</span>
+                  <span>Mar 11</span>
+                  <span>Mar 16</span>
+                  <span>Mar 21</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Release & Throughput</p>
+                  <h2>Current technical posture</h2>
+                </div>
+              </div>
+              <div class="metric-stack">
+                <div>
+                  <span>Block cadence</span>
+                  <strong>20 sec</strong>
+                </div>
+                <div>
+                  <span>Epoch duration</span>
+                  <strong>5 days</strong>
+                </div>
+                <div>
+                  <span>Blocks produced since Epoch 518</span>
+                  <strong>2.1M+</strong>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="panel-grid technical-layout">
+            <article class="card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Network Operations</p>
+                  <h2>Production and chain activity</h2>
+                </div>
+              </div>
+              <div class="network-grid">
+                <div class="network-grid__item">
+                  <span>Circulating ADA</span>
+                  <strong>35.4B</strong>
+                </div>
+                <div class="network-grid__item">
+                  <span>Treasury</span>
+                  <strong>1.8B</strong>
+                </div>
+                <div class="network-grid__item">
+                  <span>Reserves</span>
+                  <strong>7.0B</strong>
+                </div>
+                <div class="network-grid__item">
+                  <span>Reward Balance</span>
+                  <strong>755M</strong>
+                </div>
+                <div class="network-grid__item">
+                  <span>Block Production</span>
+                  <strong>4.2 blocks/min</strong>
+                </div>
+                <div class="network-grid__item">
+                  <span>Network Activity</span>
+                  <strong>82% active stake</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Technical Notes</p>
+                  <h2>What stakeholders should monitor</h2>
+                </div>
+              </div>
+              <ul class="insight-list">
+                <li>Recent official release notes list cardano-node <strong>10.6.2</strong> as the latest node version.</li>
+                <li>Mainnet block production averages roughly <strong>21k blocks per epoch</strong>, with one slot every <strong>20 seconds</strong>.</li>
+                <li>Price remains below prior cycle highs, so market sentiment and on-chain fundamentals should be read together rather than separately.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
