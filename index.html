@@ -13,6 +13,22 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="welcome-overlay" id="welcome-overlay" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+      <div class="welcome-overlay__backdrop"></div>
+      <button class="welcome-overlay__panel" id="welcome-enter" type="button" aria-label="Enter the Cardano dashboard">
+        <span class="welcome-overlay__eyebrow">Welcome</span>
+        <h1 id="welcome-title">Welcome to the Cardano dashboard.</h1>
+        <p class="welcome-overlay__text">
+          Cardano is a decentralized, research-driven blockchain built around transparency,
+          community participation, and proof-of-stake governance.
+        </p>
+        <p class="welcome-overlay__text">
+          This dashboard helps visitors explore how the ecosystem works across transparency,
+          governance, blockchain metrics, and common questions from stakeholders.
+        </p>
+        <span class="welcome-overlay__cta">Click anywhere to enter</span>
+      </button>
+    </div>
     <div class="shell">
       <header class="hero">
         <div class="hero__copy">
@@ -45,6 +61,7 @@
           <button class="tab" data-tab="transparency" role="tab" aria-selected="false" aria-controls="transparency">Transparency</button>
           <button class="tab is-active" data-tab="overview" role="tab" aria-selected="true" aria-controls="overview">Governance</button>
           <button class="tab" data-tab="technical" role="tab" aria-selected="false" aria-controls="technical">Blockchain Metrics</button>
+          <button class="tab" data-tab="faq" role="tab" aria-selected="false" aria-controls="faq">FAQ</button>
         </nav>
 
         <section class="tab-panel is-active" id="overview" role="tabpanel">
@@ -329,22 +346,22 @@
           <div class="panel-grid panel-grid--hero">
             <article class="card stat-card accent-a">
               <span class="stat-card__label">ADA Spot Price</span>
-              <strong>$0.27</strong>
+              <strong><span class="metric-tooltip" data-tooltip="The current reference market price of ADA in U.S. dollars.">$0.27</span></strong>
               <span class="delta neutral">Reference snapshot for March 21, 2026</span>
             </article>
             <article class="card stat-card accent-b">
               <span class="stat-card__label">7 Day Range</span>
-              <strong>$0.25-$0.29</strong>
+              <strong><span class="metric-tooltip" data-tooltip="The lowest and highest ADA prices observed across the last seven days.">$0.25-$0.29</span></strong>
               <span class="delta positive">Recovered from early-week lows</span>
             </article>
             <article class="card stat-card accent-c">
               <span class="stat-card__label">Cardano Node</span>
-              <strong>10.6.2</strong>
+              <strong><span class="metric-tooltip" data-tooltip="The reference node software version used to compare technical upgrade status across the network.">10.6.2</span></strong>
               <span class="delta positive">Latest official release noted in docs</span>
             </article>
             <article class="card stat-card accent-d">
               <span class="stat-card__label">Avg Blocks / Epoch</span>
-              <strong>21,083</strong>
+              <strong><span class="metric-tooltip" data-tooltip="The average number of blocks produced across a full Cardano epoch, which helps show network output over time.">21,083</span></strong>
               <span class="delta neutral">Based on recent mainnet trend data</span>
             </article>
           </div>
@@ -405,15 +422,15 @@
               <div class="metric-stack">
                 <div>
                   <span>Block cadence</span>
-                  <strong>20 sec</strong>
+                  <strong><span class="metric-tooltip" data-tooltip="The approximate time between new blocks being added to the chain.">20 sec</span></strong>
                 </div>
                 <div>
                   <span>Epoch duration</span>
-                  <strong>5 days</strong>
+                  <strong><span class="metric-tooltip" data-tooltip="The length of a Cardano epoch, which groups network activity and rewards into fixed periods.">5 days</span></strong>
                 </div>
                 <div>
                   <span>Blocks produced since Epoch 518</span>
-                  <strong>2.1M+</strong>
+                  <strong><span class="metric-tooltip" data-tooltip="The cumulative number of blocks observed since the selected reference epoch.">2.1M+</span></strong>
                 </div>
               </div>
             </article>
@@ -430,27 +447,27 @@
               <div class="network-grid">
                 <div class="network-grid__item">
                   <span>Circulating ADA</span>
-                  <strong>35.4B</strong>
+                  <strong><span class="metric-tooltip" data-tooltip="The amount of ADA currently circulating in the market and available to holders.">35.4B</span></strong>
                 </div>
                 <div class="network-grid__item">
                   <span>Treasury</span>
-                  <strong>1.8B</strong>
+                  <strong><span class="metric-tooltip" data-tooltip="The ADA balance held in the treasury for future ecosystem funding and governance decisions.">1.8B</span></strong>
                 </div>
                 <div class="network-grid__item">
                   <span>Reserves</span>
-                  <strong>7.0B</strong>
+                  <strong><span class="metric-tooltip" data-tooltip="The remaining ADA reserve supply that has not yet entered full circulation.">7.0B</span></strong>
                 </div>
                 <div class="network-grid__item">
                   <span>Reward Balance</span>
-                  <strong>755M</strong>
+                  <strong><span class="metric-tooltip" data-tooltip="The ADA currently available or allocated for staking and related network rewards.">755M</span></strong>
                 </div>
                 <div class="network-grid__item">
                   <span>Block Production</span>
-                  <strong>4.2 blocks/min</strong>
+                  <strong><span class="metric-tooltip" data-tooltip="The observed rate at which the network is producing blocks over time.">4.2 blocks/min</span></strong>
                 </div>
                 <div class="network-grid__item">
                   <span>Network Activity</span>
-                  <strong>82% active stake</strong>
+                  <strong><span class="metric-tooltip" data-tooltip="The share of total stake that is actively participating in staking or network consensus.">82% active stake</span></strong>
                 </div>
               </div>
             </article>
@@ -469,6 +486,178 @@
               </ul>
             </article>
           </div>
+
+          <article class="card advanced-metrics-card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Advanced Metrics</p>
+                <h2>Governance and ecosystem indicators to track</h2>
+              </div>
+              <span class="badge">Framework View</span>
+            </div>
+            <div class="table-wrap">
+              <table class="metrics-table">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>Reference Value</th>
+                    <th>Input Data & Source</th>
+                    <th>Calculation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>Nakamoto Coefficient</strong>
+                      <span>Stake Concentration</span>
+                    </td>
+                    <td>
+                      <strong><span class="metric-tooltip" data-tooltip="This estimates how many independent pools would be needed to control more than half of the network stake.">25 pools</span></strong>
+                      Top 10 pools control <strong>22.8%</strong> of network stake.
+                    </td>
+                    <td>
+                      Independent source reporting stake as operators included in the stake set.
+                      Source: Edinburgh Decentralization Index or equivalent operator reporting.
+                    </td>
+                    <td>
+                      Min pools required to control more than 50% of stake, plus top-N pools stake divided by total network stake.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Proposal Pass Rate</strong>
+                      <span>On-Chain Implementation Rate</span>
+                    </td>
+                    <td>
+                      <strong><span class="metric-tooltip" data-tooltip="The share of submitted governance proposals that successfully pass.">61%</span></strong>
+                      Implementation rate: <strong>74%</strong>
+                    </td>
+                    <td>
+                      Total governance proposals submitted on-chain and proposal outcomes by Yes, No, or Abstain.
+                      Source: Blockfrost or operator reporting via API.
+                    </td>
+                    <td>
+                      Pass Rate = proposals passed divided by total submitted.
+                      Implementation Rate = executed proposals divided by passed proposals.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>ADA Holder Governance Turnout</strong>
+                      <span>Voting Participation</span>
+                    </td>
+                    <td>
+                      <strong><span class="metric-tooltip" data-tooltip="The percentage of eligible wallets that actually participated in governance voting.">18.6%</span></strong>
+                      About <strong>142k</strong> eligible wallets participated.
+                    </td>
+                    <td>
+                      Unique wallet addresses casting on-chain votes.
+                      Source: Blockfrost and vote transactions pulled from operator nodes.
+                    </td>
+                    <td>
+                      Turnout = unique wallets that voted divided by total eligible wallets.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Block Production Success Rate</strong>
+                      <span>Network Uptime</span>
+                    </td>
+                    <td>
+                      <strong><span class="metric-tooltip" data-tooltip="How closely actual block output matches expected block production across the period being measured.">98.9%</span></strong>
+                      Operator uptime: <strong>99.4%</strong>
+                    </td>
+                    <td>
+                      Total blocks produced versus expected per epoch, plus node online and offline timestamps.
+                      Source: Blockfrost or operator report via API.
+                    </td>
+                    <td>
+                      Success Rate = blocks produced divided by blocks expected.
+                      Uptime = operator online hours divided by total period hours.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>GitHub Contributors</strong>
+                      <span>Smart Contract Deployments</span>
+                    </td>
+                    <td>
+                      <strong><span class="metric-tooltip" data-tooltip="The count of distinct contributors actively committing to relevant ecosystem repositories in the selected period.">312 contributors</span></strong>
+                      New script deployments this epoch: <strong>47</strong>
+                    </td>
+                    <td>
+                      Script deployment data confirmed across repositories and nodes.
+                      Source: GitHub API and operator node API.
+                    </td>
+                    <td>
+                      Contributors = count of distinct contributor IDs per repo per period.
+                      Deployments = count of new script addresses per epoch.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>dApp Activity</strong>
+                      <span>Ecosystem Growth Trend</span>
+                    </td>
+                    <td>
+                      <strong><span class="metric-tooltip" data-tooltip="The number of unique wallets interacting with smart contracts or dApps during the measured period.">86k active wallets</span></strong>
+                      Period growth: <strong>+9.3%</strong>
+                    </td>
+                    <td>
+                      Unique wallet addresses interacting with smart contracts.
+                      Source: Blockfrost and operator node API.
+                    </td>
+                    <td>
+                      Activity = count of unique wallets interacting with script addresses.
+                      Growth Trend = percent change in active wallets across periods.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <section class="tab-panel" id="faq" role="tabpanel">
+          <section class="faq-section card" aria-labelledby="faq-heading">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">FAQ</p>
+                <h2 id="faq-heading">Common questions people ask about this dashboard</h2>
+              </div>
+              <span class="badge">Quick Answers</span>
+            </div>
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary>What is this dashboard meant to show?</summary>
+                <p>This dashboard gives stakeholders a high-level view of Cardano across three areas: transparency, governance, and blockchain metrics. It is designed to make complex ecosystem information easier to scan and discuss.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Is this dashboard showing live blockchain data?</summary>
+                <p>Not yet. Some values are currently reference or placeholder values used to shape the experience. The layout is ready to be connected to live APIs and on-chain data sources later.</p>
+              </details>
+              <details class="faq-item">
+                <summary>What is a D-Rep?</summary>
+                <p>A D-Rep, or delegated representative, is someone stakeholders can delegate governance voting power to. They participate in votes on proposals and help represent community preferences.</p>
+              </details>
+              <details class="faq-item">
+                <summary>How can someone participate in Cardano governance?</summary>
+                <p>A stakeholder can participate by holding ADA, following active proposals, delegating to a D-Rep, and joining governance discussions in the community.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Why are metrics like Nakamoto coefficient or turnout included?</summary>
+                <p>These metrics help explain how decentralized the network is, how distributed stake and influence are, and how much real participation is happening in governance.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Who is this dashboard for?</summary>
+                <p>It is useful for investors, ecosystem contributors, delegates, analysts, and anyone trying to understand Cardano without digging through many separate sources.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Can this be turned into a public shareable website?</summary>
+                <p>Yes. Since it is a static dashboard, it can be hosted easily on GitHub Pages, Netlify, Vercel, or another static hosting provider.</p>
+              </details>
+            </div>
+          </section>
         </section>
 
       </main>
